@@ -13,161 +13,310 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root{--deepest:#1C1C1C;--charcoal:#282828;--mahogany:#3A2F2F;--cream:#F5E6D3;--parchment:#E8D5C4;--ivory:#FFF8F0;--burgundy:#6B2C2C;--russet:#CD5C5C;--auburn:#BC544B;--forest:#2F4538;--sage:#4A5F4F;--moss:#5C6F5C;--honey:#C9A961;--brass:#D4AF37;--slate:#708090;--steel:#536878}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{background:var(--deepest);color:var(--cream);font-family:'EB Garamond',Georgia,serif;font-size:18px;line-height:1.7;overflow-x:hidden}
-    body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1000}
-    ::selection{background:var(--auburn);color:var(--ivory)}
-    a{color:var(--honey);text-decoration:none;transition:color .3s}
-    a:hover{color:var(--brass)}
-
-    /* NAV */
-    nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(28,28,28,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--mahogany);padding:.8rem 2rem;display:flex;justify-content:space-between;align-items:center;font-family:'Crimson Pro',serif}
-    .nav-logo{font-size:1.3rem;font-weight:600;color:var(--honey);letter-spacing:.05em}
-    .nav-logo span{color:var(--auburn)}
-    .nav-links{display:flex;gap:2rem;list-style:none}
-    .nav-links a{color:var(--parchment);font-size:.95rem;letter-spacing:.04em;text-transform:lowercase;position:relative}
-    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--honey);transition:width .3s}
-    .nav-links a:hover::after{width:100%}
-    .hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--cream);transition:all .3s}
-    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-    .hamburger.active span:nth-child(2){opacity:0}
-    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-
-    /* HERO */
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative}
-    .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 50%,rgba(107,44,44,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 30%,rgba(201,169,97,.06) 0%,transparent 50%)}
-    .hero-content{position:relative;z-index:1;max-width:720px}
-    .hero-greeting{font-family:'Crimson Pro',serif;font-size:2.8rem;font-weight:300;color:var(--honey);letter-spacing:.08em;margin-bottom:.2rem;opacity:0;animation:fadeUp 1s ease .2s forwards}
-    .hero h1{font-family:'Crimson Pro',serif;font-size:3.5rem;font-weight:600;color:var(--ivory);margin-bottom:.8rem;letter-spacing:.02em;opacity:0;animation:fadeUp 1s ease .5s forwards}
-    .hero-subtitle{font-family:'EB Garamond',serif;font-size:1.25rem;color:var(--parchment);font-style:italic;margin-bottom:2rem;opacity:0;animation:fadeUp 1s ease .8s forwards}
-    .hero-tagline{font-family:'Crimson Pro',serif;font-size:.9rem;color:var(--slate);letter-spacing:.15em;text-transform:uppercase;opacity:0;animation:fadeUp 1s ease 1.1s forwards}
-    .divider{width:60px;height:1px;background:var(--auburn);margin:2rem auto;opacity:0;animation:fadeUp 1s ease .9s forwards}
-    .hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--slate);letter-spacing:.1em;opacity:0;animation:fadeUp 1s ease 1.5s forwards}
-    .hero-scroll::after{content:'';display:block;width:1px;height:30px;background:var(--mahogany);margin:.5rem auto 0;animation:pulse 2s ease-in-out infinite}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
-
-    /* SECTIONS */
-    section{padding:5rem 2rem;max-width:900px;margin:0 auto}
-    .section-header{font-family:'Crimson Pro',serif;font-size:2rem;font-weight:600;color:var(--ivory);margin-bottom:.4rem;letter-spacing:.02em}
-    .section-subtitle{font-family:'EB Garamond',serif;font-style:italic;color:var(--slate);font-size:1.05rem;margin-bottom:2.5rem}
-    .section-divider{width:40px;height:1px;background:var(--auburn);margin-bottom:2.5rem}
-    .prose{font-size:1.1rem;color:var(--parchment);max-width:680px}
-    .prose p{margin-bottom:1.3rem}
-    .prose strong{color:var(--honey);font-weight:500}
-
-    /* STATS */
-    .stats-row{display:flex;gap:2.5rem;flex-wrap:wrap;margin:2.5rem 0;padding:2rem 0;border-top:1px solid var(--mahogany);border-bottom:1px solid var(--mahogany)}
-    .stat{text-align:center;flex:1;min-width:120px}
-    .stat-number{font-family:'Crimson Pro',serif;font-size:2.5rem;font-weight:600;color:var(--honey);line-height:1}
-    .stat-label{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--slate);letter-spacing:.06em;text-transform:uppercase;margin-top:.3rem}
-
-    /* EPIGRAPH */
-    .epigraph{border-left:2px solid var(--auburn);padding-left:1.5rem;margin:3rem 0;max-width:600px}
-    .epigraph p{font-family:'EB Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--parchment);line-height:1.6}
-    .epigraph cite{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--slate);font-style:normal;display:block;margin-top:.5rem}
-
-    /* WORKSHOP */
-    .workshop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem;margin-top:1.5rem}
-    .project-card{background:var(--charcoal);border:1px solid var(--mahogany);border-radius:6px;padding:1.4rem;transition:border-color .3s,transform .2s;position:relative}
-    .project-card:hover{border-color:var(--auburn);transform:translateY(-2px)}
-    .project-status{position:absolute;top:1rem;right:1rem;width:8px;height:8px;border-radius:50%}
-    .status-active{background:var(--moss);box-shadow:0 0 6px rgba(92,111,92,.5)}
-    .status-queued{background:var(--honey)}
-    .status-waiting{background:var(--slate)}
-    .project-card h4{font-family:'Crimson Pro',serif;color:var(--ivory);font-size:1.05rem;margin-bottom:.2rem;padding-right:1.5rem}
-    .project-card .project-type{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--auburn);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
-    .project-card p{font-size:.9rem;color:var(--slate);line-height:1.5}
-
-    /* CAREER */
-    .role{border-left:2px solid var(--mahogany);padding-left:1.8rem;margin-bottom:2.5rem;position:relative;transition:border-color .3s}
-    .role:hover{border-color:var(--auburn)}
-    .role::before{content:'';position:absolute;left:-5px;top:6px;width:8px;height:8px;background:var(--auburn);border-radius:50%}
-    .role-title{font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:600;color:var(--ivory)}
-    .role-company{font-family:'Crimson Pro',serif;color:var(--honey);font-size:1rem;letter-spacing:.03em}
-    .role-date{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--slate);margin-bottom:.5rem}
-    .role-desc{font-size:.98rem;color:var(--parchment);line-height:1.65}
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:2rem}
-    .skill-category h4{font-family:'Crimson Pro',serif;color:var(--honey);font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem;font-weight:600}
-    .skill-category p{font-size:.9rem;color:var(--slate);line-height:1.5}
-
-    /* RENAISSANCE */
-    .domains-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;margin-top:1.5rem}
-    .domain-card{background:var(--charcoal);border:1px solid var(--mahogany);border-radius:6px;padding:1.5rem;transition:border-color .3s,transform .2s}
-    .domain-card:hover{border-color:var(--auburn);transform:translateY(-2px)}
-    .domain-card h4{font-family:'Crimson Pro',serif;color:var(--ivory);font-size:1.1rem;margin-bottom:.3rem}
-    .domain-card .domain-type{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--auburn);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
-    .domain-card p{font-size:.92rem;color:var(--slate);line-height:1.55}
-
-    .skills-ticker{margin-top:2rem;padding:1.5rem 2rem;background:var(--charcoal);border:1px solid var(--mahogany);border-radius:6px}
-    .skills-ticker h3{font-family:'Crimson Pro',serif;color:var(--ivory);font-size:1.15rem;margin-bottom:.3rem}
-    .skills-ticker .ticker-subtitle{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--slate);letter-spacing:.04em;margin-bottom:1rem}
-    .skill-tags{display:flex;flex-wrap:wrap;gap:.5rem}
-    .skill-tag{font-family:'EB Garamond',serif;font-size:.88rem;color:var(--parchment);background:var(--mahogany);padding:.25rem .7rem;border-radius:3px;border:1px solid transparent;transition:border-color .3s}
-    .skill-tag:hover{border-color:var(--auburn)}
-    .skill-tag.upcoming{color:var(--slate);background:transparent;border:1px dashed var(--mahogany)}
-
-    .current-reads{margin-top:2rem;padding:2rem;background:var(--charcoal);border:1px solid var(--mahogany);border-radius:6px}
-    .current-reads h3{font-family:'Crimson Pro',serif;color:var(--honey);font-size:1.15rem;margin-bottom:1rem}
-    .book-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem}
-    .book-item{font-size:.92rem;color:var(--parchment);padding-left:1rem;border-left:2px solid var(--forest)}
-    .book-item .author{font-style:italic;color:var(--slate);font-size:.85rem}
-
-    /* SCRIPTORIUM */
-    .scriptorium-layers{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem;margin-top:1.5rem}
-    .layer-card{padding:1.5rem;border-radius:6px;border:1px solid var(--mahogany);background:linear-gradient(135deg,var(--charcoal),rgba(58,47,47,.3));transition:border-color .3s}
-    .layer-card:hover{border-color:var(--auburn)}
-    .layer-number{font-family:'Crimson Pro',serif;font-size:2rem;font-weight:300;color:var(--honey);opacity:.6;line-height:1;margin-bottom:.3rem}
-    .layer-card h4{font-family:'Crimson Pro',serif;color:var(--ivory);font-size:1.1rem;margin-bottom:.5rem}
-    .layer-card p{font-size:.9rem;color:var(--slate);line-height:1.55}
-
-    /* CONTENT */
-    .channel-card{background:var(--charcoal);border:1px solid var(--mahogany);border-radius:6px;padding:2rem;margin-bottom:1.5rem;transition:border-color .3s}
-    .channel-card:hover{border-color:var(--auburn)}
-    .channel-card h3{font-family:'Crimson Pro',serif;font-size:1.4rem;color:var(--ivory);margin-bottom:.3rem}
-    .channel-card .channel-type{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--honey);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.8rem}
-    .channel-card p{color:var(--parchment);font-size:.98rem}
-    .channel-tracks{display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap}
-    .track-tag{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--cream);background:var(--mahogany);padding:.3rem .8rem;border-radius:3px;letter-spacing:.03em}
-    .channel-cta{display:inline-block;margin-top:1rem;font-family:'Crimson Pro',serif;font-size:.95rem;color:var(--honey);border:1px solid var(--mahogany);padding:.5rem 1.2rem;border-radius:4px;transition:all .3s}
-    .channel-cta:hover{border-color:var(--auburn);background:rgba(188,84,75,.08)}
-
-    /* CONTACT */
-    .contact-section{text-align:center;padding:5rem 2rem 6rem;border-top:1px solid var(--mahogany)}
-    .contact-links{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
-    .contact-link{font-family:'Crimson Pro',serif;font-size:1rem;color:var(--parchment);letter-spacing:.03em;padding:.6rem 1.5rem;border:1px solid var(--mahogany);border-radius:4px;transition:all .3s}
-    .contact-link:hover{border-color:var(--auburn);color:var(--ivory);background:rgba(188,84,75,.08)}
-
-    /* FOOTER */
-    footer{text-align:center;padding:2rem}
-    footer .colophon{font-family:'EB Garamond',serif;font-style:italic;font-size:.9rem;color:var(--parchment);margin-bottom:.8rem;opacity:.7}
-    footer p:last-child{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--slate);letter-spacing:.05em}
-
-    /* ANIMATIONS */
-    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
-    .fade-in.visible{opacity:1;transform:translateY(0)}
-
-    /* RESPONSIVE */
-    @media(max-width:768px){
-      nav{padding:.6rem 1rem}
-      .hamburger{display:flex}
-      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(28,28,28,.97);flex-direction:column;padding:1.5rem 2rem;gap:1.2rem;border-bottom:1px solid var(--mahogany)}
-      .nav-links.open{display:flex}
-      .hero-greeting{font-size:2rem}.hero h1{font-size:2.5rem}
-      section{padding:3.5rem 1.5rem}
-      .section-header{font-size:1.6rem}
-      .domains-grid,.workshop-grid,.scriptorium-layers{grid-template-columns:1fr}
-      .skills-grid{grid-template-columns:1fr 1fr}
-      .stats-row{gap:1.5rem}.stat-number{font-size:2rem}
+    :root {
+      --deepest: #1C1C1C;
+      --charcoal: #282828;
+      --mahogany: #3A2F2F;
+      --cream: #F5E6D3;
+      --parchment: #E8D5C4;
+      --ivory: #FFF8F0;
+      --burgundy: #6B2C2C;
+      --russet: #CD5C5C;
+      --auburn: #BC544B;
+      --forest: #2F4538;
+      --sage: #4A5F4F;
+      --moss: #5C6F5C;
+      --honey: #C9A961;
+      --brass: #D4AF37;
+      --slate: #708090;
+      --steel: #536878;
     }
-    @media(max-width:480px){
-      .hero-greeting{font-size:1.7rem}.hero h1{font-size:2rem}.hero-subtitle{font-size:1.05rem}
-      .skills-grid{grid-template-columns:1fr}
-      .contact-links{flex-direction:column;align-items:center}
-      .stats-row{flex-direction:column;gap:1rem}
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--deepest);
+      color: var(--cream);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    ::selection { background: var(--auburn); color: var(--ivory); }
+    a { color: var(--honey); text-decoration: none; transition: color 0.3s; }
+    a:hover { color: var(--brass); }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(28, 28, 28, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--mahogany);
+      padding: 0.8rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: 'Crimson Pro', serif;
+    }
+    .nav-logo { font-size: 1.3rem; font-weight: 600; color: var(--honey); letter-spacing: 0.05em; }
+    .nav-logo span { color: var(--auburn); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--parchment); font-size: 0.95rem; letter-spacing: 0.04em;
+      text-transform: lowercase; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--honey); transition: width 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--cream); transition: all 0.3s; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ─── Hero ─── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 6rem 2rem 4rem; position: relative;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(107, 44, 44, 0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 30%, rgba(201, 169, 97, 0.06) 0%, transparent 50%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 720px; }
+    .hero-greeting {
+      font-family: 'Crimson Pro', serif; font-size: 2.8rem; font-weight: 300;
+      color: var(--honey); letter-spacing: 0.08em; margin-bottom: 0.2rem;
+      opacity: 0; animation: fadeUp 1s ease 0.2s forwards;
+    }
+    .hero h1 {
+      font-family: 'Crimson Pro', serif; font-size: 3.5rem; font-weight: 600;
+      color: var(--ivory); margin-bottom: 0.8rem; letter-spacing: 0.02em;
+      opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
+    }
+    .hero-subtitle {
+      font-family: 'EB Garamond', serif; font-size: 1.25rem; color: var(--parchment);
+      font-style: italic; margin-bottom: 2rem; opacity: 0; animation: fadeUp 1s ease 0.8s forwards;
+    }
+    .hero-tagline {
+      font-family: 'Crimson Pro', serif; font-size: 0.9rem; color: var(--slate);
+      letter-spacing: 0.15em; text-transform: uppercase;
+      opacity: 0; animation: fadeUp 1s ease 1.1s forwards;
+    }
+    .divider {
+      width: 60px; height: 1px; background: var(--auburn); margin: 2rem auto;
+      opacity: 0; animation: fadeUp 1s ease 0.9s forwards;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--slate);
+      letter-spacing: 0.1em; opacity: 0; animation: fadeUp 1s ease 1.5s forwards;
+    }
+    .hero-scroll::after {
+      content: ''; display: block; width: 1px; height: 30px;
+      background: var(--mahogany); margin: 0.5rem auto 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+    /* ─── Sections ─── */
+    section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+    .section-header {
+      font-family: 'Crimson Pro', serif; font-size: 2rem; font-weight: 600;
+      color: var(--ivory); margin-bottom: 0.4rem; letter-spacing: 0.02em;
+    }
+    .section-subtitle {
+      font-family: 'EB Garamond', serif; font-style: italic; color: var(--slate);
+      font-size: 1.05rem; margin-bottom: 2.5rem;
+    }
+    .section-divider { width: 40px; height: 1px; background: var(--auburn); margin-bottom: 2.5rem; }
+    .prose { font-size: 1.1rem; color: var(--parchment); max-width: 680px; }
+    .prose p { margin-bottom: 1.3rem; }
+    .prose strong { color: var(--honey); font-weight: 500; }
+
+    /* ─── Stats ─── */
+    .stats-row {
+      display: flex; gap: 2.5rem; flex-wrap: wrap; margin: 2.5rem 0; padding: 2rem 0;
+      border-top: 1px solid var(--mahogany); border-bottom: 1px solid var(--mahogany);
+    }
+    .stat { text-align: center; flex: 1; min-width: 120px; }
+    .stat-number { font-family: 'Crimson Pro', serif; font-size: 2.5rem; font-weight: 600; color: var(--honey); line-height: 1; }
+    .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--slate); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.3rem; }
+
+    /* ─── Epigraph ─── */
+    .epigraph { border-left: 2px solid var(--auburn); padding-left: 1.5rem; margin: 3rem 0; max-width: 600px; }
+    .epigraph p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.15rem; color: var(--parchment); line-height: 1.6; }
+    .epigraph cite { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--slate); font-style: normal; display: block; margin-top: 0.5rem; }
+
+    /* ─── Cards (Workshop + Domains) ─── */
+    .card-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem; margin-top: 1.5rem;
+    }
+    .card {
+      background: var(--charcoal); border: 1px solid var(--mahogany); border-radius: 6px;
+      padding: 1.4rem; transition: border-color 0.3s, transform 0.2s; position: relative;
+    }
+    .card:hover { border-color: var(--auburn); transform: translateY(-2px); }
+    .card h4 { font-family: 'Crimson Pro', serif; color: var(--ivory); font-size: 1.05rem; margin-bottom: 0.2rem; padding-right: 1.5rem; }
+    .card .card-type {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--auburn);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    .card p { font-size: 0.9rem; color: var(--slate); line-height: 1.5; }
+    .card-status { position: absolute; top: 1rem; right: 1rem; width: 8px; height: 8px; border-radius: 50%; }
+    .status-active { background: var(--moss); box-shadow: 0 0 6px rgba(92, 111, 92, 0.5); }
+    .status-queued { background: var(--honey); }
+    .status-waiting { background: var(--slate); }
+
+    /* ─── Career ─── */
+    .role {
+      border-left: 2px solid var(--mahogany); padding-left: 1.8rem;
+      margin-bottom: 2.5rem; position: relative; transition: border-color 0.3s;
+    }
+    .role:hover { border-color: var(--auburn); }
+    .role::before {
+      content: ''; position: absolute; left: -5px; top: 6px;
+      width: 8px; height: 8px; background: var(--auburn); border-radius: 50%;
+    }
+    .role-title { font-family: 'Crimson Pro', serif; font-size: 1.25rem; font-weight: 600; color: var(--ivory); }
+    .role-company { font-family: 'Crimson Pro', serif; color: var(--honey); font-size: 1rem; letter-spacing: 0.03em; }
+    .role-date { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--slate); margin-bottom: 0.5rem; }
+    .role-desc { font-size: 0.98rem; color: var(--parchment); line-height: 1.65; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .skill-category h4 {
+      font-family: 'Crimson Pro', serif; color: var(--honey); font-size: 0.9rem;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 600;
+    }
+    .skill-category p { font-size: 0.9rem; color: var(--slate); line-height: 1.5; }
+
+    /* ─── 52 Skills Ticker ─── */
+    .skills-ticker {
+      margin-top: 2rem; padding: 1.5rem 2rem; background: var(--charcoal);
+      border: 1px solid var(--mahogany); border-radius: 6px;
+    }
+    .skills-ticker h3 { font-family: 'Crimson Pro', serif; color: var(--ivory); font-size: 1.15rem; margin-bottom: 0.3rem; }
+    .skills-ticker .ticker-subtitle {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--slate);
+      letter-spacing: 0.04em; margin-bottom: 1rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag {
+      font-family: 'EB Garamond', serif; font-size: 0.88rem; color: var(--parchment);
+      background: var(--mahogany); padding: 0.25rem 0.7rem; border-radius: 3px;
+      border: 1px solid transparent; transition: border-color 0.3s;
+    }
+    .skill-tag:hover { border-color: var(--auburn); }
+    .skill-tag.in-progress { color: var(--honey); background: transparent; border: 1px solid var(--honey); }
+    .skill-tag.upcoming { color: var(--slate); background: transparent; border: 1px dashed var(--mahogany); }
+
+    /* ─── Books ─── */
+    .current-reads {
+      margin-top: 2rem; padding: 2rem; background: var(--charcoal);
+      border: 1px solid var(--mahogany); border-radius: 6px;
+    }
+    .current-reads h3 { font-family: 'Crimson Pro', serif; color: var(--honey); font-size: 1.15rem; margin-bottom: 1rem; }
+    .book-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.8rem; }
+    .book-item { font-size: 0.92rem; color: var(--parchment); padding-left: 1rem; border-left: 2px solid var(--forest); }
+    .book-item .author { font-style: italic; color: var(--slate); font-size: 0.85rem; }
+
+    /* ─── Scriptorium Layers ─── */
+    .scriptorium-layers {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.2rem; margin-top: 1.5rem;
+    }
+    .layer-card {
+      padding: 1.5rem; border-radius: 6px; border: 1px solid var(--mahogany);
+      background: linear-gradient(135deg, var(--charcoal), rgba(58, 47, 47, 0.3));
+      transition: border-color 0.3s;
+    }
+    .layer-card:hover { border-color: var(--auburn); }
+    .layer-number { font-family: 'Crimson Pro', serif; font-size: 2rem; font-weight: 300; color: var(--honey); opacity: 0.6; line-height: 1; margin-bottom: 0.3rem; }
+    .layer-card h4 { font-family: 'Crimson Pro', serif; color: var(--ivory); font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .layer-card p { font-size: 0.9rem; color: var(--slate); line-height: 1.55; }
+
+    /* ─── Content / YouTube ─── */
+    .channel-card {
+      background: var(--charcoal); border: 1px solid var(--mahogany); border-radius: 6px;
+      padding: 2rem; margin-bottom: 1.5rem; transition: border-color 0.3s;
+    }
+    .channel-card:hover { border-color: var(--auburn); }
+    .channel-card h3 { font-family: 'Crimson Pro', serif; font-size: 1.4rem; color: var(--ivory); margin-bottom: 0.3rem; }
+    .channel-card .channel-type {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--honey);
+      letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.8rem;
+    }
+    .channel-card p { color: var(--parchment); font-size: 0.98rem; }
+    .channel-tracks { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .track-tag {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--cream);
+      background: var(--mahogany); padding: 0.3rem 0.8rem; border-radius: 3px; letter-spacing: 0.03em;
+    }
+    .channel-cta {
+      display: inline-block; margin-top: 1rem; font-family: 'Crimson Pro', serif; font-size: 0.95rem;
+      color: var(--honey); border: 1px solid var(--mahogany); padding: 0.5rem 1.2rem;
+      border-radius: 4px; transition: all 0.3s;
+    }
+    .channel-cta:hover { border-color: var(--auburn); background: rgba(188, 84, 75, 0.08); }
+
+    /* ─── Contact ─── */
+    .contact-section { text-align: center; padding: 5rem 2rem 6rem; border-top: 1px solid var(--mahogany); }
+    .contact-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .contact-link {
+      font-family: 'Crimson Pro', serif; font-size: 1rem; color: var(--parchment);
+      letter-spacing: 0.03em; padding: 0.6rem 1.5rem; border: 1px solid var(--mahogany);
+      border-radius: 4px; transition: all 0.3s;
+    }
+    .contact-link:hover { border-color: var(--auburn); color: var(--ivory); background: rgba(188, 84, 75, 0.08); }
+
+    /* ─── Footer ─── */
+    footer { text-align: center; padding: 2rem; }
+    footer .colophon { font-family: 'EB Garamond', serif; font-style: italic; font-size: 0.9rem; color: var(--parchment); margin-bottom: 0.8rem; opacity: 0.7; }
+    footer p:last-child { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--slate); letter-spacing: 0.05em; }
+
+    /* ─── Animations ─── */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s, transform 0.7s; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      nav { padding: 0.6rem 1rem; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(28, 28, 28, 0.97); flex-direction: column;
+        padding: 1.5rem 2rem; gap: 1.2rem; border-bottom: 1px solid var(--mahogany);
+      }
+      .nav-links.open { display: flex; }
+      .hero-greeting { font-size: 2rem; }
+      .hero h1 { font-size: 2.5rem; }
+      section { padding: 3.5rem 1.5rem; }
+      .section-header { font-size: 1.6rem; }
+      .card-grid, .scriptorium-layers { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { gap: 1.5rem; }
+      .stat-number { font-size: 2rem; }
+    }
+    @media (max-width: 480px) {
+      .hero-greeting { font-size: 1.7rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero-subtitle { font-size: 1.05rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .contact-links { flex-direction: column; align-items: center; }
+      .stats-row { flex-direction: column; gap: 1rem; }
     }
   </style>
 </head>
@@ -189,6 +338,7 @@
     </ul>
   </nav>
 
+  <!-- ═══ HERO ═══ -->
   <header class="hero">
     <div class="hero-content">
       <div class="hero-greeting">Hey! Hey!</div>
@@ -200,6 +350,7 @@
     <div class="hero-scroll">scroll</div>
   </header>
 
+  <!-- ═══ ABOUT ═══ -->
   <section id="about">
     <h2 class="section-header fade-in">About</h2>
     <p class="section-subtitle fade-in">The short version, and the honest one.</p>
@@ -208,7 +359,7 @@
       <p>I'm CK. By day, I'm an AI platform specialist helping enterprise customers navigate complex technical systems. By night, I'm reading Dostoevsky, building homelab infrastructure on Linux, learning to draw from classical casts, 3D printing things for the apartment, and trying to figure out how medieval guild systems can teach us about modern skill acquisition.</p>
       <p>I call this the <strong>Renaissance Craftsman</strong> approach. Not because I'm trying to be Leonardo da Vinci. Because I genuinely believe that the best ideas come from connecting things that aren't supposed to be connected. A Victorian knowledge management practice informs how you build a digital second brain. A 15th-century workshop layout teaches you about creative environments. An 800-year-old apprenticeship model turns out to be better for ADHD brains than any modern productivity system.</p>
       <p>I'm not a productivity influencer. I'm not optimizing my morning routine. I'm someone who got obsessed with too many things, spent years thinking that was a problem, and eventually realized it was the whole point.</p>
-      <p>I document this journey across two YouTube channels, a growing library of <strong>350+ books spanning 50+ domains</strong>, and a personal knowledge system called the Scriptorium that integrates analog notebooks, AI collaboration, and a digital vault. If any of that sounds interesting, you're in the right place.</p>
+      <p>I document this journey across two YouTube channels, a growing collection of <strong>350+ books across 50+ domains</strong> (collected, not all read; I'm honest about that), and a personal knowledge system called the Scriptorium that integrates analog notebooks, AI collaboration, and a digital vault. If any of that sounds interesting, you're in the right place.</p>
     </div>
     <div class="stats-row fade-in">
       <div class="stat"><div class="stat-number">350+</div><div class="stat-label">Books Collected</div></div>
@@ -222,30 +373,92 @@
     </div>
   </section>
 
+  <!-- ═══ WORKSHOP ═══ -->
   <section id="workshop">
     <h2 class="section-header fade-in">The Workshop</h2>
     <p class="section-subtitle fade-in">What I'm currently building, learning, or making.</p>
     <div class="section-divider fade-in"></div>
-    <div class="workshop-grid">
-      <div class="project-card fade-in"><div class="project-status status-active"></div><h4>It's CK — YouTube</h4><div class="project-type">Content Creation</div><p>Filming the 52 Skills comeback arc. Currently producing Spark 2 (philosophy), with PC, Linux, and Homelab skill videos in the queue. Lumix S5II, DaVinci Resolve Studio, Dark Academia aesthetic.</p></div>
-      <div class="project-card fade-in"><div class="project-status status-active"></div><h4>AI Courses Deep Dive</h4><div class="project-type">Learning + Video</div><p>Taking every free course from Anthropic Academy and Google AI. Building toward a video review and expanding from conversational AI usage into API, MCP, and agentic workflows.</p></div>
-      <div class="project-card fade-in"><div class="project-status status-active"></div><h4>3D Printing</h4><div class="project-type">Physical Fabrication</div><p>Bambu Lab P2S Combo with AMS. Learning parametric CAD in FreeCAD. Current project: magnetic chalkboard headers for video production. PLA matte prints in Dark Academia palette.</p></div>
-      <div class="project-card fade-in"><div class="project-status status-active"></div><h4>Academic Drawing</h4><div class="project-type">Classical Art</div><p>Working through a cast drawing to life drawing progression using Halftone Studio methodology. Building observational skill from the classical tradition forward.</p></div>
-      <div class="project-card fade-in"><div class="project-status status-queued"></div><h4>Photo Sovereignty</h4><div class="project-type">Infrastructure</div><p>Migrating 289GB of photos from Google Photos to self-hosted Immich on the homelab. Full photo independence with local AI-powered search.</p></div>
-      <div class="project-card fade-in"><div class="project-status status-waiting"></div><h4>Obsidian Vault Synthesis</h4><div class="project-type">Knowledge Architecture</div><p>Planned overnight autonomous Claude Code task to deep-synthesize the Obsidian vault. Cross-linking, gap analysis, and structural improvements across 500+ notes.</p></div>
+    <div class="card-grid">
+      <div class="card fade-in">
+        <div class="card-status status-active"></div>
+        <h4>It's CK — YouTube</h4>
+        <div class="card-type">Content Creation</div>
+        <p>Filming the 52 Skills comeback arc. Currently producing Spark 2 (philosophy), with PC, Linux, and Homelab skill videos queued. Lumix S5II with Sirui VP-1 cine lenses, DaVinci Resolve Studio.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-status status-active"></div>
+        <h4>AI Courses Deep Dive</h4>
+        <div class="card-type">Learning + Video</div>
+        <p>Taking every free course from Anthropic Academy and Google AI. Building toward a video review and expanding from conversational AI into API, MCP, and agentic workflows.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-status status-active"></div>
+        <h4>3D Printing</h4>
+        <div class="card-type">Physical Fabrication</div>
+        <p>Bambu Lab P2S Combo with AMS. Learning parametric CAD in FreeCAD. Current project: magnetic chalkboard headers for video production. PLA matte prints in Dark Academia palette.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-status status-active"></div>
+        <h4>Academic Drawing</h4>
+        <div class="card-type">Classical Art</div>
+        <p>Cast drawing to life drawing progression. Halftone Studio methodology. Building observational skill from the classical tradition forward.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-status status-queued"></div>
+        <h4>Photo Sovereignty</h4>
+        <div class="card-type">Infrastructure</div>
+        <p>Migrating 289GB of photos from Google Photos to self-hosted Immich on the homelab. Full photo independence with local AI-powered search.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-status status-waiting"></div>
+        <h4>Obsidian Vault Synthesis</h4>
+        <div class="card-type">Knowledge Architecture</div>
+        <p>Planned overnight Claude Code task to deep-synthesize the Obsidian vault. Cross-linking, gap analysis, and structural improvements across 500+ notes.</p>
+      </div>
     </div>
   </section>
 
+  <!-- ═══ CAREER ═══ -->
   <section id="career">
     <h2 class="section-header fade-in">Career</h2>
     <p class="section-subtitle fade-in">A decade of customer-facing technical work.</p>
     <div class="section-divider fade-in"></div>
-    <div class="role fade-in"><div class="role-title">Customer Support Specialist</div><div class="role-company">Cresta</div><div class="role-date">May 2023 — Present</div><p class="role-desc">Primary technical advocate for enterprise customers on an AI conversation intelligence platform. Last line of defense before engineering escalation. Diagnosing complex issues through Datadog log analysis, SIPREC traffic inspection, and cross-functional triage. Training and onboarding all new support agents. Authoring documentation and capturing structured feedback to inform product development.</p></div>
-    <div class="role fade-in"><div class="role-title">Customer Support Specialist</div><div class="role-company">Autodesk</div><div class="role-date">Jul 2019 — Mar 2021, Dec 2021 — May 2023</div><p class="role-desc">Tier I and II support on PlanGrid and Autodesk Construction Cloud. Adjunct QA tester for new features during Construction Cloud's early development, working directly with beta customers and relaying feedback to engineering. Trained and onboarded all new support agents.</p></div>
-    <div class="role fade-in"><div class="role-title">Customer Success Specialist</div><div class="role-company">Imajion</div><div class="role-date">Mar 2021 — Oct 2021</div><p class="role-desc">Managed full technical onboarding lifecycle for enterprise customers implementing AR construction solutions on Microsoft HoloLens. Discovery sessions, client journey tracking, QA testing alongside developers.</p></div>
-    <div class="role fade-in"><div class="role-title">Happiness Engineer</div><div class="role-company">Automattic</div><div class="role-date">Apr 2017 — Nov 2018</div><p class="role-desc">Complex WordPress plugin troubleshooting and API debugging for Jetpack, Akismet, and VaultPress. Beta tested products with development teams. Mentored globally distributed support teams.</p></div>
-    <div class="role fade-in"><div class="role-title">Systems Engineer</div><div class="role-company">Cedonix</div><div class="role-date">Oct 2015 — Apr 2017</div><p class="role-desc">On-site technical support and system implementation for Financial Services enterprise clients. Network configuration, server deployments, backups, and disaster recovery consulting.</p></div>
-    <div class="fade-in" style="margin-top:1.5rem"><div class="role-title">Education</div><div class="role-company">New Jersey Institute of Technology</div><div class="role-date">B.S. Information Technology, Minor in Information Systems — May 2016</div></div>
+
+    <div class="role fade-in">
+      <div class="role-title">Customer Support Specialist</div>
+      <div class="role-company">Cresta</div>
+      <div class="role-date">May 2023 — Present</div>
+      <p class="role-desc">Primary technical advocate for enterprise customers on an AI conversation intelligence platform. Last line of defense before engineering escalation. Diagnosing complex issues through Datadog log analysis, SIPREC traffic inspection, and cross-functional triage. Training and onboarding all new support agents. Authoring documentation and capturing structured feedback to inform product development.</p>
+    </div>
+    <div class="role fade-in">
+      <div class="role-title">Customer Support Specialist</div>
+      <div class="role-company">Autodesk</div>
+      <div class="role-date">Jul 2019 — Mar 2021, Dec 2021 — May 2023</div>
+      <p class="role-desc">Tier I and II support on PlanGrid and Autodesk Construction Cloud. Adjunct QA tester for new features during Construction Cloud's early development, working directly with beta customers and relaying feedback to engineering. Trained and onboarded all new support agents.</p>
+    </div>
+    <div class="role fade-in">
+      <div class="role-title">Customer Success Specialist</div>
+      <div class="role-company">Imajion</div>
+      <div class="role-date">Mar 2021 — Oct 2021</div>
+      <p class="role-desc">Managed full technical onboarding lifecycle for enterprise customers implementing AR construction solutions on Microsoft HoloLens. Discovery sessions, client journey tracking, QA testing alongside developers.</p>
+    </div>
+    <div class="role fade-in">
+      <div class="role-title">Happiness Engineer</div>
+      <div class="role-company">Automattic</div>
+      <div class="role-date">Apr 2017 — Nov 2018</div>
+      <p class="role-desc">Complex WordPress plugin troubleshooting and API debugging for Jetpack, Akismet, and VaultPress. Beta tested products with development teams. Mentored globally distributed support teams.</p>
+    </div>
+    <div class="role fade-in">
+      <div class="role-title">Systems Engineer</div>
+      <div class="role-company">Cedonix</div>
+      <div class="role-date">Oct 2015 — Apr 2017</div>
+      <p class="role-desc">On-site technical support and system implementation for Financial Services enterprise clients. Network configuration, server deployments, backups, and disaster recovery consulting.</p>
+    </div>
+    <div class="fade-in" style="margin-top: 1.5rem;">
+      <div class="role-title">Education</div>
+      <div class="role-company">New Jersey Institute of Technology</div>
+      <div class="role-date">B.S. Information Technology, Minor in Information Systems — May 2016</div>
+    </div>
     <div class="skills-grid fade-in">
       <div class="skill-category"><h4>Customer Success</h4><p>Technical Troubleshooting, Implementation &amp; Onboarding, Documentation &amp; Training, Process Optimization</p></div>
       <div class="skill-category"><h4>Technical Platforms</h4><p>AI/ML Platforms, API Debugging, SSO/SAML Configuration, Cloud Integrations, Linux, Docker</p></div>
@@ -253,23 +466,27 @@
     </div>
   </section>
 
+  <!-- ═══ RENAISSANCE ═══ -->
   <section id="renaissance">
     <h2 class="section-header fade-in">The Renaissance Catalog</h2>
     <p class="section-subtitle fade-in">Cross-domain exploration, tracked honestly.</p>
     <div class="section-divider fade-in"></div>
-    <div class="prose fade-in" style="margin-bottom:2rem">
+
+    <div class="prose fade-in" style="margin-bottom: 2rem;">
       <p>I maintain an active practice across multiple disciplines simultaneously. Not as a hobby collector, but as a deliberate pattern-recognition system. Each domain informs the others. I started a project called <strong>52 Skills</strong> in January 2025: learn 52 skills, one at a time. I made it 13 weeks before realizing that rigid weekly sprints don't work for my brain. The project didn't die. It evolved. The number is the goal. Not the timeline.</p>
     </div>
-    <div class="domains-grid">
-      <div class="domain-card fade-in"><h4>AI &amp; Knowledge Systems</h4><div class="domain-type">Active</div><p>Building a three-layer cognitive system (the Scriptorium) integrating analog notebooks, AI collaboration with Claude and Gemini, and an Obsidian digital vault.</p></div>
-      <div class="domain-card fade-in"><h4>Homelab &amp; Linux</h4><div class="domain-type">Active</div><p>Eight-device self-hosted network. Proxmox hypervisor, OMV NAS, Docker services, EndeavourOS + Hyprland tiling compositor. Custom Dark Academia desktop environment.</p></div>
-      <div class="domain-card fade-in"><h4>Video Production</h4><div class="domain-type">Active</div><p>Lumix S5II full-frame with Sirui VP-1 cine lenses. Godox lighting. DaVinci Resolve Studio. Full pipeline from scripting to color to export.</p></div>
-      <div class="domain-card fade-in"><h4>3D Printing &amp; CAD</h4><div class="domain-type">Active</div><p>Bambu Lab P2S Combo with AMS. Parametric design in FreeCAD. Functional prints for the workspace and video production.</p></div>
-      <div class="domain-card fade-in"><h4>Academic Drawing</h4><div class="domain-type">Active</div><p>Cast drawing progression from the classical atelier tradition. Halftone Studio methodology. Pencil on paper before pixels on screen.</p></div>
-      <div class="domain-card fade-in"><h4>Philosophy &amp; Literature</h4><div class="domain-type">Ongoing</div><p>350+ book library. Tandem reading across Dostoevsky, Borges, Sennett, Epstein, and Bachelard. Catherine Project literary discussions. Stoic foundations.</p></div>
-      <div class="domain-card fade-in"><h4>Electronics &amp; Making</h4><div class="domain-type">Upcoming</div><p>Arduino, soldering, and physical computing. The maker trilogy: logic, connection, and form. Queued after the current 3D printing deep dive.</p></div>
-      <div class="domain-card fade-in"><h4>Gaming as Narrative</h4><div class="domain-type">Creative</div><p>OSRS and Minecraft as storytelling mediums. Constraint-based challenge runs. Long-form narrative in unexpected places. The Vellumere channel.</p></div>
+
+    <div class="card-grid">
+      <div class="card fade-in"><h4>AI &amp; Knowledge Systems</h4><div class="card-type">Active</div><p>Building a three-layer cognitive system (the Scriptorium) integrating analog notebooks, AI collaboration with Claude and Gemini, and an Obsidian digital vault.</p></div>
+      <div class="card fade-in"><h4>Homelab &amp; Linux</h4><div class="card-type">Active</div><p>Eight-device self-hosted network. Proxmox hypervisor, OMV NAS, Docker services, EndeavourOS + Hyprland tiling compositor. Custom Dark Academia desktop environment.</p></div>
+      <div class="card fade-in"><h4>Video Production</h4><div class="card-type">Active</div><p>Lumix S5II full-frame with Sirui VP-1 cine lenses. Godox lighting. DaVinci Resolve Studio. Full pipeline from scripting to color to export.</p></div>
+      <div class="card fade-in"><h4>3D Printing &amp; CAD</h4><div class="card-type">Active</div><p>Bambu Lab P2S Combo with AMS. Parametric design in FreeCAD. Functional prints for the workspace and video production.</p></div>
+      <div class="card fade-in"><h4>Academic Drawing</h4><div class="card-type">Active</div><p>Cast drawing progression from the classical atelier tradition. Halftone Studio methodology. Pencil on paper before pixels on screen.</p></div>
+      <div class="card fade-in"><h4>Philosophy &amp; Literature</h4><div class="card-type">Ongoing</div><p>350+ books collected across 50+ domains. Tandem reading across Dostoevsky, Borges, Sennett, Epstein, and Bachelard. Catherine Project literary discussions. The library grows faster than I read, and that's the point.</p></div>
+      <div class="card fade-in"><h4>Electronics &amp; Making</h4><div class="card-type">Upcoming</div><p>Arduino, soldering, and physical computing. The maker trilogy: logic, connection, and form. Queued after the current 3D printing deep dive.</p></div>
+      <div class="card fade-in"><h4>Gaming as Narrative</h4><div class="card-type">Creative</div><p>OSRS and Minecraft as storytelling mediums. Constraint-based challenge runs. Long-form narrative in unexpected places. The Vellumere channel.</p></div>
     </div>
+
     <div class="skills-ticker fade-in">
       <h3>52 Skills — Progress Tracker</h3>
       <div class="ticker-subtitle">The number is the goal. Not the timeline.</div>
@@ -277,26 +494,27 @@
         <span class="skill-tag">1. Filmmaking</span>
         <span class="skill-tag">2. Front-End Dev</span>
         <span class="skill-tag">3. Sketching</span>
-        <span class="skill-tag">4. Lock Picking</span>
-        <span class="skill-tag">5. Coding</span>
-        <span class="skill-tag">6. Baking</span>
-        <span class="skill-tag">7. Calligraphy</span>
-        <span class="skill-tag">8. Origami</span>
-        <span class="skill-tag">9. Speed Cubing</span>
-        <span class="skill-tag">10. Card Throwing</span>
-        <span class="skill-tag">11. Chess</span>
-        <span class="skill-tag">12. Pen Spinning</span>
-        <span class="skill-tag">13. Knife Sharpening</span>
-        <span class="skill-tag">14. PC Building</span>
-        <span class="skill-tag">15. Linux</span>
-        <span class="skill-tag">16. Homelab</span>
-        <span class="skill-tag">17. AI / Claude</span>
-        <span class="skill-tag upcoming">18. Arduino</span>
-        <span class="skill-tag upcoming">19. Soldering</span>
-        <span class="skill-tag upcoming">20. 3D Printing</span>
-        <span class="skill-tag upcoming">21. Bookbinding</span>
+        <span class="skill-tag">4. Blender</span>
+        <span class="skill-tag">5. Reading</span>
+        <span class="skill-tag">6. Japanese</span>
+        <span class="skill-tag">7. Notes</span>
+        <span class="skill-tag">8. Meditation</span>
+        <span class="skill-tag">9. Typing</span>
+        <span class="skill-tag">10. Pixel Art</span>
+        <span class="skill-tag">11. Animation</span>
+        <span class="skill-tag">12. Cars</span>
+        <span class="skill-tag">13. Lockpicking</span>
+        <span class="skill-tag in-progress">14. PC Building</span>
+        <span class="skill-tag in-progress">15. Linux</span>
+        <span class="skill-tag in-progress">16. Homelab</span>
+        <span class="skill-tag in-progress">17. AI / Claude</span>
+        <span class="skill-tag upcoming">18. 3D Printing</span>
+        <span class="skill-tag upcoming">19. Arduino</span>
+        <span class="skill-tag upcoming">20. Soldering</span>
+        <span class="skill-tag upcoming">21. Cast Drawing</span>
       </div>
     </div>
+
     <div class="current-reads fade-in">
       <h3>Currently On the Shelf</h3>
       <div class="book-list">
@@ -308,24 +526,38 @@
     </div>
   </section>
 
+  <!-- ═══ SCRIPTORIUM ═══ -->
   <section id="scriptorium">
     <h2 class="section-header fade-in">The Scriptorium</h2>
     <p class="section-subtitle fade-in">A three-layer system for thinking, creating, and learning.</p>
     <div class="section-divider fade-in"></div>
-    <div class="prose fade-in" style="margin-bottom:2rem">
+    <div class="prose fade-in" style="margin-bottom: 2rem;">
       <p>The Scriptorium is my personal knowledge system, named after the medieval writing rooms where monks preserved and created knowledge. It's not a productivity hack. It's an architecture for how I actually think: analog exploration first, AI collaboration second, digital archive third. Each layer serves a different cognitive function. Together, they form something I haven't found anywhere else.</p>
     </div>
     <div class="scriptorium-layers">
-      <div class="layer-card fade-in"><div class="layer-number">I</div><h4>Scholar's Manuscript</h4><p>Analog notebooks. Kokuyo Systemic cover with three Midori MD inserts: a weekly scheduler, a blank thinking canvas for visual frameworks, and a dotted commonplace book. The hand thinks differently than the keyboard.</p></div>
-      <div class="layer-card fade-in"><div class="layer-number">II</div><h4>Scholar's Brain</h4><p>AI collaboration as cognitive extension. Claude as Strategic Cortex for deep synthesis and decision-making. Gemini as Creative Cortex for real-time research and aesthetic direction. Two minds, different strengths.</p></div>
-      <div class="layer-card fade-in"><div class="layer-number">III</div><h4>Scholar's Web</h4><p>Obsidian vault with a nine-space architecture: Mind Dump, Library, Domains, Sparks, Projects, Chronicle, Creations, Canon, and Completed. 500+ notes. The permanent record of everything that survives the other two layers.</p></div>
+      <div class="layer-card fade-in">
+        <div class="layer-number">I</div>
+        <h4>Scholar's Manuscript</h4>
+        <p>Analog notebooks. Kokuyo Systemic cover with three Midori MD inserts: a weekly scheduler, a blank thinking canvas for visual frameworks, and a dotted commonplace book. The hand thinks differently than the keyboard.</p>
+      </div>
+      <div class="layer-card fade-in">
+        <div class="layer-number">II</div>
+        <h4>Scholar's Brain</h4>
+        <p>AI collaboration as cognitive extension. Claude as Strategic Cortex for deep synthesis and decision-making. Gemini as Creative Cortex for real-time research and aesthetic direction. Two minds, different strengths.</p>
+      </div>
+      <div class="layer-card fade-in">
+        <div class="layer-number">III</div>
+        <h4>Scholar's Web</h4>
+        <p>Obsidian vault with a nine-space architecture: Mind Dump, Library, Domains, Sparks, Projects, Chronicle, Creations, Canon, and Completed. 500+ notes. The permanent record of everything that survives the other two layers.</p>
+      </div>
     </div>
-    <div class="epigraph fade-in" style="margin-top:2.5rem">
+    <div class="epigraph fade-in" style="margin-top: 2.5rem;">
       <p>"The best ideas come from connecting things that aren't supposed to be connected."</p>
       <cite>CK</cite>
     </div>
   </section>
 
+  <!-- ═══ CONTENT ═══ -->
   <section id="content">
     <h2 class="section-header fade-in">Content</h2>
     <p class="section-subtitle fade-in">Two channels, one mission.</p>
@@ -349,6 +581,7 @@
     </div>
   </section>
 
+  <!-- ═══ CONTACT ═══ -->
   <section id="contact" class="contact-section">
     <h2 class="section-header fade-in">Connect</h2>
     <p class="section-subtitle fade-in">I read everything. I reply to most things.</p>
@@ -368,11 +601,28 @@
   </footer>
 
   <script>
-    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.fade-in').forEach(e=>observer.observe(e));
-    const sections=document.querySelectorAll('section[id]'),navLinks=document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll',()=>{let c='';sections.forEach(s=>{if(scrollY>=s.offsetTop-100)c=s.getAttribute('id')});navLinks.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+c?'var(--honey)':''})});
-    document.querySelectorAll('.nav-links a').forEach(l=>{l.addEventListener('click',()=>{document.querySelector('.nav-links').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')})});
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Active nav highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+      navLinks.forEach(l => { l.style.color = l.getAttribute('href') === '#' + current ? 'var(--honey)' : ''; });
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+        document.querySelector('.hamburger').classList.remove('active');
+      });
+    });
   </script>
 
 </body>
