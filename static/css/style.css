@@ -207,13 +207,16 @@ nav {
   animation: fadeUp 1s ease 0.5s forwards;
 }
 
-/* Circular headshot between the name and the divider */
+/* Vertical portrait between the name and the divider */
 .hero-photo {
   width: 140px;
-  height: 140px;
-  border-radius: 50%;
+  height: 190px;
+  border-radius: 12px;
+  border: 1px solid var(--mahogany);
   margin: 1.2rem auto 0;
   min-height: unset;
+  object-fit: cover;
+  object-position: center bottom;
   opacity: 0;
   animation: fadeUp 1s ease 0.65s forwards;
 }
@@ -789,32 +792,36 @@ footer {
    PHOTOS & VIDEO EMBEDS
    ======================================== */
 
-/* Studiolo desk photo in the about preview on landing */
+/* Studiolo desk photo in the about preview on landing —
+   lives inside the 280px grid column, so just fill it */
 .about-photo {
   width: 100%;
-  height: 100%;
+  height: 280px;
   object-fit: cover;
+  object-position: center 30%;
   border-radius: 6px;
   border: 1px solid var(--mahogany);
-  min-height: 200px;
 }
 
-/* Full-width photo on the about page */
+/* Photo on the about page — keep it modest, not a billboard */
 .about-page-photo {
+  max-width: 480px;
   width: 100%;
-  max-height: 400px;
+  height: 300px;
   object-fit: cover;
   border-radius: 6px;
   border: 1px solid var(--mahogany);
   margin: 2.5rem 0;
 }
 
-/* Responsive 16:9 video embed */
+/* Responsive 16:9 video embed — capped so it doesn't
+   swallow the whole page */
 .video-embed {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
+  max-width: 560px;
   margin: 1.5rem 0;
   border-radius: 6px;
   border: 1px solid var(--mahogany);
@@ -1273,7 +1280,7 @@ footer {
 
   .hero-greeting { font-size: 2rem; }
   .hero h1 { font-size: 2.5rem; }
-  .hero-photo { width: 110px; height: 110px; }
+  .hero-photo { width: 110px; height: 150px; }
 
   section { padding: 3.5rem 1.5rem; }
   .section-header { font-size: 1.6rem; }
