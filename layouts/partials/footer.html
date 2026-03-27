@@ -1,10 +1,12 @@
 <!-- Connect links on every page. No one should have to navigate back to find these. -->
 <footer>
   <div class="footer-connect">
+    {{ if not (eq .RelPermalink "/connect/") }}
     <h3 class="footer-heading">Connect</h3>
+    {{ end }}
     <p class="footer-tagline">I read everything. I reply to most things.</p>
     <div class="contact-links">
-      <a href="mailto:allas.p.erick@gmail.com" class="contact-link">Email</a>
+      <a href="mailto:allas.p.erick+website@gmail.com" class="contact-link">Email</a>
       <a href="https://linkedin.com/in/erick-allas-1781786b" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://youtube.com/@ckallas" class="contact-link" target="_blank" rel="noopener">YouTube</a>
       <a href="https://instagram.com/heyheyitsck" class="contact-link" target="_blank" rel="noopener">Instagram</a>
