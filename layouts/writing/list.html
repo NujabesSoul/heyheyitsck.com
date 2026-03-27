@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="page-content">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ with .Params.subtitle }}<p class="page-subtitle">{{ . }}</p>{{ end }}
+  <div class="page-divider"></div>
+
+  <div class="writing-archive">
+    {{ $pages := .Pages.ByDate.Reverse }}
+    {{ range $pages }}
+    <div class="writing-entry">
+      <div class="writing-date">{{ .Date.Format "January 2, 2006" }}</div>
+      <div class="writing-title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+      {{ with .Description }}<div class="writing-desc">{{ . }}</div>{{ end }}
+    </div>
+    {{ else }}
+    <div class="writing-entry">
+      <div class="writing-desc">Nothing published yet. The first draft is always the hardest.</div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

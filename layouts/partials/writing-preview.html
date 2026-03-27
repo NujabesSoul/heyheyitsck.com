@@ -1,0 +1,25 @@
+<!-- Latest writing. Simple list — date, title, description. -->
+<section id="writing">
+  <h2 class="section-header fade-in">Writing</h2>
+  <p class="section-subtitle fade-in">Thinking out loud, on purpose.</p>
+  <div class="section-divider fade-in"></div>
+
+  <div class="writing-list fade-in">
+    <!-- Pull the 3 most recent published posts -->
+    {{ $posts := where .Site.RegularPages "Section" "writing" }}
+    {{ range first 3 $posts }}
+    <div class="writing-entry">
+      <div class="writing-date">{{ .Date.Format "January 2, 2006" }}</div>
+      <div class="writing-title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+      {{ with .Description }}<div class="writing-desc">{{ . }}</div>{{ end }}
+    </div>
+    {{ else }}
+    <!-- Nothing published yet — that's fine, it's coming -->
+    <div class="writing-entry">
+      <div class="writing-desc">Essays and thinking coming soon. The first draft is always the hardest.</div>
+    </div>
+    {{ end }}
+  </div>
+
+  <a href="/writing/" class="section-link fade-in">All writing &rarr;</a>
+</section>

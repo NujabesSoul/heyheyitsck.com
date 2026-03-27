@@ -1,0 +1,39 @@
+<!-- What's on the workbench right now. Driven by data/projects.json
+     so CK can update this without touching templates. -->
+<section id="currently">
+  <h2 class="section-header fade-in">Currently</h2>
+  <p class="section-subtitle fade-in">What I'm building, learning, or making right now.</p>
+  <div class="section-divider fade-in"></div>
+
+  <!-- Active projects get the full treatment: 2-column grid -->
+  {{ $active := where .Site.Data.projects "status" "active" }}
+  {{ if $active }}
+  <div class="project-grid fade-in">
+    {{ range $active }}
+    <div class="project">
+      <div class="project-status status-{{ .status }}"></div>
+      <div class="project-info">
+        <div class="project-name">{{ .name }}</div>
+        <div class="project-type">{{ .type }}</div>
+        <div class="project-desc">{{ .description }}</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <!-- Queued and waiting projects: compact, less visual weight -->
+  {{ $queued := where .Site.Data.projects "status" "ne" "active" }}
+  {{ if $queued }}
+  <div class="project-queue fade-in">
+    <div class="queue-label">Up next</div>
+    {{ range $queued }}
+    <div class="project-compact">
+      <div class="project-status status-{{ .status }}"></div>
+      <div class="project-name">{{ .name }}</div>
+      <div class="project-type">{{ .type }}</div>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>

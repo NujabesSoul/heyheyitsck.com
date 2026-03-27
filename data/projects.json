@@ -1,0 +1,38 @@
+[
+  {
+    "name": "It's CK — YouTube",
+    "type": "Content Creation",
+    "status": "active",
+    "description": "Filming the 52 Skills comeback arc. Currently producing philosophy and skill videos documenting what I've been learning and building over the past year. Comeback season."
+  },
+  {
+    "name": "AI Courses Deep Dive",
+    "type": "Learning + Video",
+    "status": "active",
+    "description": "Taking every free course from Anthropic Academy and Google AI. Expanding from conversational AI usage into API, automation, and agentic workflows."
+  },
+  {
+    "name": "3D Printing",
+    "type": "Physical Fabrication",
+    "status": "active",
+    "description": "Learning parametric CAD in FreeCAD alongside the Bambu Lab P2S. Exploring magnetic builds, functional design, and the bridge between digital modeling and physical objects."
+  },
+  {
+    "name": "Academic Drawing",
+    "type": "Classical Art",
+    "status": "active",
+    "description": "Cast drawing to life drawing progression. Learning to see before learning to render. Pencil on paper, classical tradition, no shortcuts."
+  },
+  {
+    "name": "Self-Hosted Photo Library",
+    "type": "Infrastructure",
+    "status": "queued",
+    "description": "Migrating years of photos off Google and onto personal infrastructure. Owning the archive of every moment Holly and I have captured together."
+  },
+  {
+    "name": "Personal Website v2",
+    "type": "You're Looking At It",
+    "status": "active",
+    "description": "Hugo rebuild. No templates, no CMS, no monthly subscription. Just markdown, a GitHub repo, and a color palette that means something."
+  }
+]

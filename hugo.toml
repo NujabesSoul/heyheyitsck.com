@@ -1,0 +1,14 @@
+baseURL = "https://heyheyitsck.com"
+languageCode = "en-us"
+title = "It's CK — Renaissance Craftsman"
+
+[params]
+  description = "Renaissance thinking for the AI age."
+  author = "CK"
+  tagline = "Learning things, building things, and trying to stay human in an increasingly automated world."
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[taxonomies]
+  tag = "tags"
