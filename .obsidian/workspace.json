@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/renaissance.md",
+                "file": "content/about.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "renaissance"
+              "title": "about"
             }
           }
         ]
@@ -185,10 +185,11 @@
   },
   "active": "79525bf7178de59f",
   "lastOpenFiles": [
+    "content/_index.md",
+    "content/about.md",
+    "content/renaissance.md",
     "content/connect.md",
     "content/career.md",
-    "content/about.md",
-    "content/_index.md",
     "content/writing/hello-world.md",
     "public/tags/ai/index.xml",
     "public/tags/ai/index.html",
