@@ -821,8 +821,47 @@ footer {
 
 
 /* ========================================
-   CAREER — timeline with left border
+   CAREER — professional header, then
+   timeline with left border.
    ======================================== */
+
+/* The professional identity at the top of the page */
+.career-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.career-header .career-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  min-height: unset;
+  flex-shrink: 0;
+}
+
+.career-name {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--ivory);
+  margin-bottom: 0.2rem;
+}
+
+.career-current {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--honey);
+  margin-bottom: 0.15rem;
+}
+
+.career-location {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--slate);
+  letter-spacing: 0.04em;
+}
 
 .role {
   border-left: 2px solid var(--mahogany);
@@ -1199,6 +1238,11 @@ footer {
 
   .project-grid { grid-template-columns: 1fr; }
   .connect-grid { grid-template-columns: 1fr; }
+
+  .career-header {
+    flex-direction: column;
+    text-align: center;
+  }
 
   .domain-list { grid-template-columns: 1fr; }
   .domain:last-child { border-bottom: none; }

@@ -1,8 +1,17 @@
 ---
 title: "Career"
 subtitle: "A decade of customer-facing technical work."
-description: "CK's career timeline — from systems engineering to AI platforms. Customer Support Specialist at Cresta."
+description: "Erick Allas (CK) — career timeline from systems engineering to AI platforms. Customer Support Specialist at Cresta."
 ---
+
+<div class="career-header">
+  <div class="career-photo photo-placeholder">photo: professional headshot</div>
+  <div class="career-intro">
+    <h2 class="career-name">Erick Allas</h2>
+    <div class="career-current">Customer Support Specialist at Cresta</div>
+    <div class="career-location">Edison, New Jersey</div>
+  </div>
+</div>
 
 There's a thread that connects every role I've had: I end up at the intersection of people and complex systems. Whether it's debugging SIPREC traffic for an enterprise AI platform or walking a beta customer through a HoloLens onboarding, the job is always the same underneath — translate between humans and technology, figure out what's actually broken, and make sure the next person doesn't hit the same wall. I'm also, reliably, the person who ends up training everyone else.
 
