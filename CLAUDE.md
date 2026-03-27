@@ -451,3 +451,137 @@ More on that soon.
 - [ ] "Currently working on" section uses data file for easy updates
 - [ ] Writing archetype exists for new blog posts
 - [ ] Site title and meta descriptions are set
+
+---
+
+## Code Style — Write Like a Human, Not a Machine
+
+This site should read like a person built it. Not just the copy — the code itself. If someone opens the CSS or a Hugo template, it should feel like CK sat down and wrote it, not like it was generated. Here's what that means:
+
+### Variable Names Tell Stories
+
+```css
+/* BAD — what an AI names things */
+--color-primary: #1C1C1C;
+--color-secondary: #282828;
+--color-accent-1: #BC544B;
+--color-text-main: #F5E6D3;
+
+/* GOOD — what CK would name things */
+--deepest: #1C1C1C;
+--charcoal: #282828;
+--auburn: #BC544B;
+--cream: #F5E6D3;
+```
+
+The color names in the Vellumere system aren't arbitrary — they're evocative. `--honey` tells you more than `--accent-warning-light` ever will. Use the names from the color system section above. Same principle applies to spacing, breakpoints, anything that gets a variable.
+
+### Comments Explain WHY, Not WHAT
+
+```css
+/* BAD — describes what the code does (I can read the code) */
+/* Sets the font size to 18px */
+body { font-size: 18px; }
+
+/* GOOD — explains the decision */
+/* 18px body feels right for long-form reading on EB Garamond.
+   Tested 16 and it felt cramped at this line-height. */
+body { font-size: 18px; }
+```
+
+```html
+<!-- BAD -->
+<!-- Hero section -->
+<section class="hero">
+
+<!-- GOOD -->
+<!-- The greeting is the first thing anyone sees. Keep it warm. -->
+<section class="hero">
+```
+
+```js
+// BAD
+// Check if mobile
+if (window.innerWidth < 768) {
+
+// GOOD
+// Hamburger menu only kicks in below tablet width
+if (window.innerWidth < 768) {
+```
+
+### Don't Over-Comment
+
+Not every line needs a comment. If the code is clear, let it breathe. Comment the non-obvious: why you chose a specific approach, what a magic number means, where a value came from, edge cases you're handling. Skip the obvious.
+
+### Class Names Should Be Readable English
+
+```html
+<!-- BAD — BEM-heavy, robotic -->
+<div class="section__card--active">
+<div class="hero__content-wrapper">
+
+<!-- GOOD — reads like a sentence -->
+<div class="card active">
+<div class="hero-content">
+```
+
+Keep class names short, descriptive, and human. `.role-title` over `.career-section__role-item__title`. `.skill-tag` over `.renaissance-catalog__skills-tracker__tag--completed`.
+
+### Function Names Are Verbs That Make Sense
+
+```js
+// BAD
+function handleClick() {}
+function processData() {}
+function updateUI() {}
+
+// GOOD
+function toggleMobileMenu() {}
+function loadLatestVideo() {}
+function highlightActiveNavLink() {}
+```
+
+### File Organization Should Be Intuitive
+
+If someone opens the `static/css/` directory, they should immediately understand the structure. If there's one CSS file, organize it with clear section headers:
+
+```css
+/* ========================================
+   FOUNDATION — reset, variables, base
+   ======================================== */
+
+/* ========================================
+   TYPOGRAPHY — fonts, sizes, prose
+   ======================================== */
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+/* ========================================
+   HERO
+   ======================================== */
+```
+
+These headers are for the human reading the file six months from now. That human is CK.
+
+### Hugo Templates Should Be Readable
+
+```html
+<!-- BAD — dense, no breathing room -->
+{{range .Pages}}{{if eq .Section "writing"}}<article><h2>{{.Title}}</h2><time>{{.Date.Format "January 2, 2006"}}</time></article>{{end}}{{end}}
+
+<!-- GOOD — formatted for a human -->
+{{ range .Pages }}
+  {{ if eq .Section "writing" }}
+    <article>
+      <h2>{{ .Title }}</h2>
+      <time>{{ .Date.Format "January 2, 2006" }}</time>
+    </article>
+  {{ end }}
+{{ end }}
+```
+
+### The Test
+
+Before finalizing any file, ask: "If CK opens this in VSCode six months from now at midnight, will he understand what's happening and why?" If the answer is no, add a comment or rename something.
