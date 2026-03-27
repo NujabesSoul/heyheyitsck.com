@@ -53,8 +53,6 @@ I don't believe in specializing in one thing. I believe in going deep across man
   </div>
 </div>
 
-<div class="photo-placeholder" style="margin-top: 2rem; min-height: 250px;">photo: 3D printer or printed object</div>
-
 ---
 
 ## 52 Skills — Progress Tracker
@@ -86,7 +84,9 @@ I don't believe in specializing in one thing. I believe in going deep across man
   </div>
 </div>
 
-<div class="photo-placeholder" style="margin-top: 2rem; min-height: 200px;">photo: 3D printed object or workspace</div>
+<div class="video-embed" style="margin-top: 2rem;">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PLoUU5YaWkp8CEUDbuIvKnGGHI35mjmOze" title="52 Skills playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ---
 

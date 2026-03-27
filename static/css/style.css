@@ -786,6 +786,50 @@ footer {
 
 
 /* ========================================
+   PHOTOS & VIDEO EMBEDS
+   ======================================== */
+
+/* Studiolo desk photo in the about preview on landing */
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--mahogany);
+  min-height: 200px;
+}
+
+/* Full-width photo on the about page */
+.about-page-photo {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--mahogany);
+  margin: 2.5rem 0;
+}
+
+/* Responsive 16:9 video embed */
+.video-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  border: 1px solid var(--mahogany);
+}
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+
+/* ========================================
    DEEP PAGES — about, renaissance, career
    ======================================== */
 
@@ -840,8 +884,8 @@ footer {
   min-height: unset;
   flex-shrink: 0;
   object-fit: cover;
-  /* Nudge up slightly to center on the face */
-  object-position: center 20%;
+  /* Nudge up and left to center on the face */
+  object-position: 40% 20%;
   border: 2px solid var(--mahogany);
 }
 

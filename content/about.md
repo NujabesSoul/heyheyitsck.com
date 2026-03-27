@@ -12,7 +12,7 @@ I'm not a productivity influencer. I'm not optimizing my morning routine. I'm a 
 
 I document this journey across two YouTube channels, a growing collection of **350+ books across 50+ domains** (collected, not all read — I'm honest about that), and a personal knowledge system called the Scriptorium. If any of that sounds interesting, you're in the right place.
 
-<div class="photo-placeholder" style="min-height: 300px; margin: 2.5rem 0;">photo: bookshelf or kokuyo notebook system</div>
+<img src="/images/about.jpg" alt="CK in a library" class="about-page-photo">
 
 <div class="epigraph">
   <p>"Craftsmanship names an enduring, basic human impulse, the desire to do a job well for its own sake."</p>
@@ -53,7 +53,9 @@ An Obsidian vault with a nine-space architecture and 500+ notes. The permanent r
 
 ## Latest Video
 
-<div class="photo-placeholder" style="min-height: 280px; margin: 1.5rem 0;">youtube: latest video embed from @ckallas</div>
+<div class="video-embed">
+  <iframe src="https://www.youtube.com/embed/3xjxMGs5dM4" title="Latest video from It's CK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Two channels. **It's CK** is the face channel — philosophy, skills, systems. Three content tracks rotating by energy, not schedule. **Vellumere** is the faceless gaming channel (coming soon) — OSRS and Minecraft challenge runs, constraint-based storytelling, patience as content.
 
