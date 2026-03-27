@@ -839,6 +839,10 @@ footer {
   border-radius: 50%;
   min-height: unset;
   flex-shrink: 0;
+  object-fit: cover;
+  /* Nudge up slightly to center on the face */
+  object-position: center 20%;
+  border: 2px solid var(--mahogany);
 }
 
 .career-name {

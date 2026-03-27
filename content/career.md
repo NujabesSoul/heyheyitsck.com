@@ -5,7 +5,7 @@ description: "Erick Allas (CK) — career timeline from systems engineering to A
 ---
 
 <div class="career-header">
-  <div class="career-photo photo-placeholder">photo: professional headshot</div>
+  <img src="/images/headshot.jpg" alt="Erick Allas" class="career-photo">
   <div class="career-intro">
     <h2 class="career-name">Erick Allas</h2>
     <div class="career-current">Customer Support Specialist at Cresta</div>
