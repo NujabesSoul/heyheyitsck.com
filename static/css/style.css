@@ -55,6 +55,14 @@ body::before {
 a { color: var(--honey); text-decoration: none; transition: color 0.3s; }
 a:hover { color: var(--brass); }
 
+/* Hugo renders --- as <hr>. Give them breathing room. */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--mahogany);
+  margin: 3rem 0;
+}
+
 
 /* ========================================
    TYPOGRAPHY — fonts, sizes, prose
@@ -651,6 +659,14 @@ footer {
 
 .footer-connect {
   padding: 3rem 2rem 2rem;
+}
+
+.footer-heading {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ivory);
+  margin-bottom: 0.4rem;
 }
 
 .footer-tagline {

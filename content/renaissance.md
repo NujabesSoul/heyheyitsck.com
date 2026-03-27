@@ -83,11 +83,10 @@ I don't believe in specializing in one thing. I believe in going deep across man
     <span class="skill-tag upcoming">18. 3D Printing</span>
     <span class="skill-tag upcoming">19. Arduino</span>
     <span class="skill-tag upcoming">20. Soldering</span>
-    <span class="skill-tag upcoming">21. Cast Drawing</span>
   </div>
 </div>
 
-<div class="photo-placeholder" style="margin-top: 2rem; min-height: 200px;">photo: cast drawing in progress</div>
+<div class="photo-placeholder" style="margin-top: 2rem; min-height: 200px;">photo: 3D printed object or workspace</div>
 
 ---
 

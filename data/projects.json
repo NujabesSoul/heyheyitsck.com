@@ -24,10 +24,22 @@
     "description": "Cast drawing to life drawing progression. Learning to see before learning to render. Pencil on paper, classical tradition, no shortcuts."
   },
   {
-    "name": "Self-Hosted Photo Library",
+    "name": "Self-Hosted Photo Library (Immich)",
     "type": "Infrastructure",
     "status": "queued",
     "description": "Migrating years of photos off Google and onto personal infrastructure. Owning the archive of every moment Holly and I have captured together."
+  },
+  {
+    "name": "Cloud Backup (Backblaze B2)",
+    "type": "Infrastructure",
+    "status": "queued",
+    "description": "Off-site backup for the homelab. 40TB of data needs a second copy that isn't in the same room."
+  },
+  {
+    "name": "Homelab Expansion",
+    "type": "Infrastructure",
+    "status": "queued",
+    "description": "New Proxmox services and Docker containers. Expanding the Athenaeum."
   },
   {
     "name": "Personal Website v2",

@@ -25,8 +25,8 @@ I document this journey across two YouTube channels, a growing collection of **3
 
 The honest snapshot. This changes all the time, which is kind of the point.
 
-- **Drawing from casts.** I'm working through the classical atelier progression — Bargue plates, then plaster casts, eventually the figure. It's humbling in the best way. Learning to see before learning to render.
-- **3D printing everything.** The Bambu P2S is running almost daily. Magnetic wall mounts, cable organizers, custom brackets for the apartment. FreeCAD for parametric modeling. The bridge between digital and physical is addictive.
+- **3D printing everything.** The Bambu P2S is running almost daily. Magnetic wall mounts, cable organizers, custom brackets for the apartment — if I can model it in FreeCAD, I'm printing it. Parametric modeling is the part I didn't expect to love this much. The bridge between digital and physical is addictive.
+- **Getting into electronics next.** Arduino and soldering are up next in the skill progression. The maker trilogy: fabricate, electrify, fuse. 3D printing is the first leg. Electronics is the second. Eventually they converge.
 - **Filming again.** The YouTube channel went quiet for a while. Now I'm shooting philosophy and skill videos, documenting what I've been learning. Comeback season.
 - **Taking every AI course I can find.** Anthropic Academy, Google AI — expanding from conversational usage into API, automation, agentic workflows. This is my day job and my obsession and they happen to overlap.
 - **Reading too many books at once.** As always. Four at the moment. See below.
