@@ -1,0 +1,16 @@
+<svg width="300" height="103" viewBox="193 -2 296 102" xmlns="http://www.w3.org/2000/svg">
+
+<g transform="translate(340, 50)">
+
+<text x="0" y="0" text-anchor="middle" font-family="Georgia, serif" font-size="48" fill="#708090" font-weight="400" letter-spacing="3">It's CK</text>
+
+<line x1="-90" y1="15" x2="90" y2="15" stroke="#708090" stroke-width="0.5" opacity="0.4"/>
+
+<text x="0" y="40" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#708090" letter-spacing="4" opacity="0.5">THINK . MAKE . BUILD</text>
+
+<circle cx="-130" cy="-5" r="1.5" fill="#708090" opacity="0.3"/>
+<circle cx="130" cy="-5" r="1.5" fill="#708090" opacity="0.3"/>
+<circle cx="-140" cy="35" r="1" fill="#708090" opacity="0.3"/>
+<circle cx="140" cy="35" r="1" fill="#708090" opacity="0.3"/>
+</g>
+</svg>
