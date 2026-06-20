@@ -6,6 +6,8 @@ title = "It's CK — Renaissance Craftsman"
   description = "Renaissance thinking for the AI age."
   author = "CK"
   tagline = "Learning things, building things, and trying to stay human in an increasingly automated world."
+  # Memento mori. Drives the life-in-weeks grid and the age counter — change it here, nowhere else.
+  born = "1992-10-19"
 
 [markup.goldmark.renderer]
   unsafe = true

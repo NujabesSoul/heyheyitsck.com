@@ -1,0 +1,30 @@
+<!-- A terminal you can summon from anywhere. Backtick or / opens it, Esc closes.
+     The page list is rendered here (not hardcoded in main.js) so the map and
+     the blurbs live next to the site, not buried in the JavaScript. The blurbs
+     echo each page's own subtitle — if you change a subtitle, change it here too. -->
+{{ $pages := slice
+  (dict "name" "home"        "path" "/"             "blurb" "Where the whole picture lives — the landing page.")
+  (dict "name" "about"       "path" "/about/"       "blurb" "Pull up a chair. The honest version.")
+  (dict "name" "career"      "path" "/career/"      "blurb" "A decade of customer-facing technical work.")
+  (dict "name" "renaissance" "path" "/renaissance/" "blurb" "The domains I explore and how they connect.")
+  (dict "name" "writing"     "path" "/writing/"     "blurb" "Thinking out loud, on purpose.")
+  (dict "name" "connect"     "path" "/connect/"     "blurb" "I read everything. I reply to most things.")
+  (dict "name" "connessione" "path" "/connessione/" "blurb" "The Connessione Engine — three minds, one contraption.")
+}}
+
+<div class="cmd-overlay" id="cmd-overlay" role="dialog" aria-modal="true"
+     aria-label="Command palette" hidden
+     data-whoami="CK (Erick Allas) — Renaissance Craftsman. AI Platform Specialist @ Cresta, Edison NJ. 350+ books across 50+ domains, building intellectual sovereignty in the AI age. Type 'help'.">
+  <div class="cmd-box" role="document">
+    <div class="cmd-output" id="cmd-output" aria-live="polite"></div>
+    <label class="cmd-line" for="cmd-input">
+      <span class="cmd-prompt">ck@heyheyitsck<span class="cmd-cwd">:~$</span></span>
+      <input class="cmd-input" id="cmd-input" type="text"
+             autocomplete="off" autocapitalize="off" autocorrect="off"
+             spellcheck="false" aria-label="Type a command, then Enter">
+    </label>
+  </div>
+</div>
+
+<!-- safeJS keeps Go's script-context escaper from re-encoding the JSON as a string -->
+<script type="application/json" id="cmd-pages">{{ $pages | jsonify | safeJS }}</script>

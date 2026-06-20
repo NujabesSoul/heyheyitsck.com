@@ -1,0 +1,14 @@
+<!-- A line from the commonplace book, picked fresh on every visit.
+     Every quote is rendered here; main.js reveals one at random.
+     If JS never runs, the first one stays put — no blank space. -->
+{{ with .Site.Data.commonplace }}
+<aside class="commonplace" aria-label="From the commonplace book">
+  {{ range $i, $q := . }}
+  <figure class="commonplace-quote{{ if ne $i 0 }} hidden{{ end }}">
+    <blockquote>{{ $q.quote }}</blockquote>
+    {{ with $q.original }}<p class="commonplace-original">{{ . }}</p>{{ end }}
+    <figcaption>{{ $q.source }}</figcaption>
+  </figure>
+  {{ end }}
+</aside>
+{{ end }}

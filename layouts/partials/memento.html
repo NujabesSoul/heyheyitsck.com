@@ -1,0 +1,19 @@
+<!-- Memento mori. Ninety years, give or take, one dot a week.
+     The dots and the ticking counter are built in main.js from
+     the birthdate in hugo.toml (params.born). Quiet on purpose. -->
+<section id="memento" class="memento fade-in" aria-label="Life in weeks">
+  <h2 class="section-header">Memento Mori</h2>
+  <p class="section-subtitle">Ninety years if I'm lucky. One dot for every week.</p>
+  <div class="section-divider"></div>
+
+  <div class="memento-grid"
+       id="memento-grid"
+       data-born="{{ .Site.Params.born }}"
+       data-years="90"
+       role="img"
+       aria-label="A grid of weeks across a roughly ninety-year life. The filled dots are weeks already lived."></div>
+
+  <p class="memento-age">
+    <span id="memento-counter" class="memento-counter">—</span> years in.
+  </p>
+</section>
